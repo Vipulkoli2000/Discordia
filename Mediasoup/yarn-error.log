@@ -1,0 +1,55 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\yashc\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
+
+PATH: 
+  C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\OpenSSL-Win64\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\yashc\AppData\Local\Microsoft\WindowsApps;;C:\Users\yashc\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\yashc\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.17.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  TypeError [ERR_INVALID_ARG_VALUE]: The property 'options.env['npm_config_____v_p_a_l_m_i_s_a_n_o___r_e_g_i_s_t_r_y_']' must be a string without null bytes. Received '\x00h\x00t\x00t\x00p\x00s\x00:\x00/\x00/\x00n\x00p\x00m\x00.\x00p\x00k\x00g\x00.\x00g\x00i\x00t\x00h\x00u\x00b\x00.\x00c\x00o\x...
+      at new NodeError (node:internal/errors:405:5)
+      at validateArgumentNullCheck (node:child_process:968:11)
+      at normalizeSpawnArguments (node:child_process:697:7)
+      at Object.spawn (node:child_process:750:13)
+      at C:\Users\yashc\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:25732:24
+      at new Promise (<anonymous>)
+      at new F (C:\Users\yashc\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:5305:28)
+      at C:\Users\yashc\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:25729:12
+      at run (C:\Users\yashc\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:43184:7)
+      at BlockingQueue.maybePushConcurrencyQueue (C:\Users\yashc\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:43199:7)
+
+npm manifest: 
+  {
+    "name": "backend",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+      "start": "nodemon index.js"
+    },
+    "dependencies": {
+      "awaitqueue": "^3.0.2",
+      "cookie-parser": "~1.4.4",
+      "debug": "~2.6.9",
+      "express": "~4.16.1",
+      "http-errors": "~1.6.3",
+      "jade": "~1.11.0",
+      "mediasoup": "^3.13.13",
+      "morgan": "~1.9.1",
+      "nodemon": "^3.0.2",
+      "socket.io": "^4.7.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

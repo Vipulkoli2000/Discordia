@@ -1,0 +1,46 @@
+const chatcontroller = require("./controller/chatController");
+const Threadchatcontroller = require("./controller/Threadchatcontroller");
+const { io } = require("./bin/www");
+
+module.exports = function (io) {
+  io.on("connection", (socket) => {
+    console.log("A user connected", socket.id);
+    socket.on("join_channel", (channelId) => {
+      console.log(channelId);
+      socket.join(channelId);
+      console.log(`User ${socket.id} joined channel ${channelId}`);
+    });
+
+    socket.on("send_message", async (data) => {
+      try {
+        console.log(data);
+        let chat;
+
+        if (data.channel) {
+          chat = await chatcontroller.sendMessage(data);
+          io.to(data.channel).emit("new_message", chat);
+          return;
+        }
+        if (data.threadId) {
+          console.log(data.threadId);
+          chat = await Threadchatcontroller.sendMessage(data);
+          io.to(data.threadId).emit("new_message", chat);
+          return;
+        }
+        if (!chat) {
+          console.log(
+            "Error sending message",
+            `chat not found for ${data.channel} or ${data.threadId}`
+          );
+        }
+      } catch (error) {
+        console.error("Error sending message:", error);
+        socket.emit("error", error.message);
+      }
+    });
+
+    socket.on("disconnect", () => {
+      console.log("User disconnected");
+    });
+  });
+};
